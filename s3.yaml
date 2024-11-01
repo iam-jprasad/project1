@@ -1,15 +1,11 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: CloudFormation template to create an S3 bucket with versioning enabled
-
 Resources:
-  MyS3Bucket:
-    Type: AWS::S3::Bucket
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
     Properties:
-      BucketName: S39916241645  # Change this to a unique name
-      VersioningConfiguration:
-        Status: Enabled
-
-Outputs:
-  BucketName:
-    Description: "The name of the S3 bucket"
-    Value: !Ref MyS3Bucket
+      ImageId: ami-0866a3c8686eaeeba
+      KeyName: testkey
+      InstanceType: t2.micro
+      SecurityGroupIds:
+        - sg-02d4f383cd71200b7
